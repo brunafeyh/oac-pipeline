@@ -15,14 +15,14 @@ public class PipelineOACRiscV {
 
     public static void main(String[] args) {
         inicializar();
-        // Conjunto de instruções simuladas
+        // Conjunto de instruções corrigidas
         String[] instrucoes = {
-                "00000000001000110000100000110011",
-                "00000000010000100000100010010011",
-                "00000000100001000000010001100011",
-                "00000000001000110000110010110011",
-                "00000000001101010000001001100011",
-                "00000001111011100010001000100011"
+                "00000000001100001000000010110011", // ADD x1, x1, x3 (R-type)
+                "00000000010000001000001010010011", // ADDI x5, x1, 4 (I-type)
+                "00000000010100010000000100000011", // LW x2, 5(x2) (I-type)
+                "00000000001100101000010010110011", // ADD x9, x5, x3 (R-type)
+                "00000000011001010000010101100011", // BEQ x10, x6, 12 (B-type)
+                "00000001011001101000001000100011"  // SW x22, 12(x13) (S-type)
         };
 
         // Simulação do pipeline por ciclos de clock
